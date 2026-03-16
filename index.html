@@ -417,7 +417,7 @@
 
       <div class="date-banner">
         <span class="date-banner-label">Effective Date</span>
-        <span class="date-banner-value">2025 · SRMK Studio</span>
+        <span class="date-banner-value">2026 · SRMK Studio</span>
       </div>
 
       <div class="section">
@@ -451,6 +451,7 @@
             <li><strong>Foreground Service</strong> — Used to maintain GPS simulation while the app is in use. No data is sent externally.</li>
             <li><strong>Storage</strong> — Used to save user-defined location settings locally. Data never leaves your device.</li>
           </ul>
+          <div class="highlight-box">🗑️ All data is stored locally on your device; the developer cannot access it. To delete your data, simply uninstall the app or clear the app data in settings.</div>
         </div>
       </div>
 
@@ -527,7 +528,7 @@
 
       <div class="date-banner">
         <span class="date-banner-label">生效日期</span>
-        <span class="date-banner-value">2025 · SRMK Studio</span>
+        <span class="date-banner-value">2026 · SRMK Studio</span>
       </div>
 
       <div class="section">
@@ -561,6 +562,7 @@
             <li><strong>前景服務</strong> — 用於在應用程式使用期間維持 GPS 模擬。不會對外傳送任何資料。</li>
             <li><strong>儲存空間</strong> — 用於在本地儲存使用者設定的位置設定。資料永遠不會離開您的裝置。</li>
           </ul>
+          <div class="highlight-box">🗑️ 所有資料僅儲存於使用者裝置本機，開發者無法存取。如需刪除，使用者可直接解除安裝應用程式或清除應用程式資料。</div>
         </div>
       </div>
 
@@ -637,7 +639,7 @@
 
       <div class="date-banner">
         <span class="date-banner-label">施行日</span>
-        <span class="date-banner-value">2025 · SRMK Studio</span>
+        <span class="date-banner-value">2026 · SRMK Studio</span>
       </div>
 
       <div class="section">
@@ -671,6 +673,7 @@
             <li><strong>フォアグラウンドサービス</strong> — アプリ使用中のGPSシミュレーションを維持するために使用します。外部へのデータ送信は行いません。</li>
             <li><strong>ストレージ</strong> — ユーザーが設定した位置設定をローカルに保存するために使用します。データがデバイスの外に出ることはありません。</li>
           </ul>
+          <div class="highlight-box">🗑️ すべてのデータは端末内にのみ保存され、開発者がアクセスすることはありません。データを削除する場合は、アプリをアンインストールするか、アプリのデータを消去してください。</div>
         </div>
       </div>
 
@@ -747,7 +750,7 @@
 
       <div class="date-banner">
         <span class="date-banner-label">시행일</span>
-        <span class="date-banner-value">2025 · SRMK Studio</span>
+        <span class="date-banner-value">2026 · SRMK Studio</span>
       </div>
 
       <div class="section">
@@ -781,6 +784,7 @@
             <li><strong>포그라운드 서비스</strong> — 앱 사용 중 GPS 시뮬레이션을 유지하기 위해 사용됩니다. 외부로 데이터가 전송되지 않습니다.</li>
             <li><strong>저장소</strong> — 사용자가 정의한 위치 설정을 로컬에 저장하기 위해 사용됩니다. 데이터는 기기를 벗어나지 않습니다.</li>
           </ul>
+          <div class="highlight-box">🗑️ 모든 데이터는 사용자의 기기에만 저장되며, 개발자는 이에 접근할 수 없습니다. 데이터 삭제를 원하실 경우, 앱을 삭제하거나 앱 데이터를 초기화해 주시기 바랍니다.</div>
         </div>
       </div>
 
@@ -864,9 +868,9 @@
       <div class="content" id="contact-body">
         <p>If you have any questions about this Privacy Policy, please contact us:</p>
       </div>
-      <a href="mailto:srmk.studio@gmail.com" class="email-chip">
+      <a href="/cdn-cgi/l/email-protection#a9dadbc4c2dadddccdc0c6e9cec4c8c0c587cac6c4" class="email-chip">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        srmk.studio@gmail.com
+        <span class="__cf_email__" data-cfemail="6f1c1d02041c1b1a0b06002f08020e0603410c0002">[email&#160;protected]</span>
       </a>
     </div>
 
@@ -910,50 +914,40 @@
     };
 
     function setLang(lang) {
-      // Hide all lang sections
       document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('active'));
-      // Show target
-      const target = document.querySelector(`[data-lang="${lang}"]`);
+      const target = document.querySelector('[data-lang="' + lang + '"]');
       if (target) target.classList.add('active');
 
-      // Update buttons
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
         btn.setAttribute('aria-pressed', 'false');
       });
-      const activeBtn = document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`);
+      const activeBtn = document.querySelector('.lang-btn[onclick="setLang(\'' + lang + '\')"]');
       if (activeBtn) {
         activeBtn.classList.add('active');
         activeBtn.setAttribute('aria-pressed', 'true');
       }
 
-      // Update contact + footer
       const t = translations[lang];
       if (t) {
         document.getElementById('contact-label').textContent = t.contactLabel;
         document.getElementById('contact-title').textContent = t.contactTitle;
-        document.getElementById('contact-body').innerHTML = `<p>${t.contactBody}</p>`;
+        document.getElementById('contact-body').innerHTML = '<p>' + t.contactBody + '</p>';
         document.getElementById('footer-text').textContent = t.footerText;
         document.documentElement.lang = t.htmlLang;
       }
 
-      // Persist
       try { localStorage.setItem('gpsurfer-pp-lang', lang); } catch(e) {}
     }
 
-    // Auto-detect or restore
     (function() {
-      let savedLang;
+      var savedLang;
       try { savedLang = localStorage.getItem('gpsurfer-pp-lang'); } catch(e) {}
-      if (savedLang && translations[savedLang]) {
-        setLang(savedLang);
-        return;
-      }
-      const browserLang = navigator.language || '';
+      if (savedLang && translations[savedLang]) { setLang(savedLang); return; }
+      var browserLang = navigator.language || '';
       if (browserLang.startsWith('zh')) setLang('zh');
       else if (browserLang.startsWith('ja')) setLang('ja');
       else if (browserLang.startsWith('ko')) setLang('ko');
-      // else default English (already active)
     })();
   </script>
 
